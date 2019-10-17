@@ -3,6 +3,7 @@ let buffer = '';
 let symbolClicked = '';
 let resultDisplayed = document.querySelector('.result');
 
+// Select the container called 'calculator'
 document
   .querySelector('.calculator')
   .addEventListener('click', function(event) {
@@ -11,9 +12,8 @@ document
     }
   });
 
-// Function called each time a button is clicked
-// It's making the difference between a symbol and
-// a number
+// Called each time a button is clicked. Making the
+// difference between a symbol and a number
 var buttonClick = data => {
   if (isNaN(data)) {
     handleSymbol(data);
@@ -22,7 +22,7 @@ var buttonClick = data => {
   }
 };
 
-// If the button clicked is NaN (so it's a Symbol)
+// If the button is NaN (so it's a Symbol)
 var handleSymbol = data => {
   if (data === 'C') {
     clear();
@@ -38,6 +38,7 @@ var handleSymbol = data => {
   }
 };
 
+// If the button is a number
 var handleNumber = data => {
   if (resultDisplayed.innerHTML === '0') {
     result = data;
@@ -47,6 +48,7 @@ var handleNumber = data => {
   updateDisplay(result);
 };
 
+// When '=' is cliqued
 var equals = () => {
   if (symbolClicked === '+') {
     result = +parseInt(buffer) + parseInt(resultDisplayed.innerHTML);
